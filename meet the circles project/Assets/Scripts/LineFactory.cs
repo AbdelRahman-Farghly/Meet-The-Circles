@@ -28,20 +28,27 @@ public class LineFactory : MonoBehaviour
 	public Image lineLife;
 	public bool enableLineLife;
 	public bool isRunning;
+	public Rigidbody2D ballrigid1 ;
+	public Rigidbody2D ballrigid2;
 
 	void Awake ()
 	{
+
 		if (instance == null) {
+		
 			instance = this;
 		} else {
 			Destroy (gameObject);
 		}
+		
+		
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
 		if (lineParent == null) {
+			
 			lineParent = GameObject.Find ("Lines").transform;
 		}
 
@@ -52,7 +59,7 @@ public class LineFactory : MonoBehaviour
 				lineLife.gameObject.SetActive (false);
 			}
 		}
-
+		
 	}
 	
 	// Update is called once per frame
@@ -66,6 +73,8 @@ public class LineFactory : MonoBehaviour
 			CreateNewLine ();
 		} else if (Input.GetMouseButtonUp (0)) {
 			RelaseCurrentLine ();
+			ballrigid1.isKinematic = false;
+			ballrigid2.isKinematic = false;
 		}
 
 		if (currentLine != null) {
@@ -73,8 +82,12 @@ public class LineFactory : MonoBehaviour
 			UpdateLineLife ();
 			if (currentLine.ReachedPointsLimit ()) {
 				RelaseCurrentLine ();
+				
 			}
 		}
+		
+		
+		
 	}
 
 	private void CreateNewLine ()
