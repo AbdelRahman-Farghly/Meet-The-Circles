@@ -92,9 +92,15 @@ public class Line : MonoBehaviour
 	[Range(0,5000)]
 	public float maxPoints = Mathf.Infinity;
 
+	public float curvetime = 5.0f;
+	public float curvevalue = 1.0f;
+
+	
+
 	// Use this for initialization
 	void Awake ()
 	{
+		
 		points = new List<Vector2> ();
 		polygon2DPoints = new List<Vector2> ();
 		lineRenderer = GetComponent<LineRenderer> ();
@@ -108,6 +114,12 @@ public class Line : MonoBehaviour
 
 		lineRenderer.material = lineMaterial;
 		halfWidth = lineRenderer.endWidth / 2.0f;
+
+		AnimationCurve curve = new AnimationCurve();
+		curve.AddKey(curvetime,curvevalue);
+		lineRenderer.widthCurve=curve;
+		
+		
 	}
 
 	/// <summary>
