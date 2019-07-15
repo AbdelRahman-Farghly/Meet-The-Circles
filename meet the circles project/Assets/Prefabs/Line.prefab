@@ -186,7 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  lineMaterial: {fileID: 0}
+  lineMaterial: {fileID: 2100000, guid: d93adfcbbf47c4b429ba9c3c6805c1e8, type: 2}
   pointZPosition: 0
   autoAddColliderPoint: 1
   maxPoints: Infinity
+  curvetime: 5
+  curvevalue: 1
