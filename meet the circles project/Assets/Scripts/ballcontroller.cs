@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ballcontroller : MonoBehaviour
 {
+    [SerializeField] private string newLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +23,10 @@ public class ballcontroller : MonoBehaviour
     {
         if (other.collider.tag=="ball")
         {
-            Debug.Log("you win");
+            SceneManager.LoadScene(newLevel);
         }
     }
-    
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag=="limits")
         {
