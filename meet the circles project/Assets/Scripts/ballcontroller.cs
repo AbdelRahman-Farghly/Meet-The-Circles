@@ -30,7 +30,7 @@ public class ballcontroller : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag=="limits")
         {
-            Debug.Log("you lose");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Destroy(this.gameObject);
         }
     }
